@@ -35,7 +35,6 @@
                         <li><a href="#">退出登录</a></li>
                     </ul>
                 </li>
-                <!--/*@thymesVar id="user" type="templates"*/-->
                 <li th:if="${session.user==null}">
                     <a href="https://github.com/login/oauth/authorize?client_id=149dfdc2890cad416fc2&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a>
                 </li>
