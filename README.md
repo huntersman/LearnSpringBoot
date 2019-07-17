@@ -8,3 +8,18 @@
 ## 工具
 [Git](https://git-scm.com/)  
 [BootStrap](https://v3.bootcss.com/)
+
+## 脚本
+```sql
+create table USER
+(
+	ID int auto_increment,
+	ACCOUNT_ID VARCHAR(100),
+	NAME VARCHAR(50),
+	TOKEN CHAR(36),
+	GMT_CREATE BIGINT,
+	GMT_MODIFIED BIGINT,
+	constraint USER_PK
+		primary key (ID)
+);
+```
