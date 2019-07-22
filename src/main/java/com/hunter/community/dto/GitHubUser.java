@@ -1,6 +1,5 @@
 package com.hunter.community.dto;
 
-
 public class GitHubUser {
     private String name;
     private long id;

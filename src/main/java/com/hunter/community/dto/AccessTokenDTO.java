@@ -19,7 +19,7 @@ public class AccessTokenDTO {
         this.client_id = client_id;
     }
 
-    public String getClient_secret(String s) {
+    public String getClient_secret() {
         return client_secret;
     }
 
