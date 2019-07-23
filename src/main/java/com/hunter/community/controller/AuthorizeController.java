@@ -15,6 +15,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
+/**
+ * 授权登录控制器
+ */
 @Controller
 public class AuthorizeController {
 
@@ -51,15 +54,15 @@ public class AuthorizeController {
             String token = UUID.randomUUID().toString();
             user.setToken(token);
             user.setName(gitHubUser.getName());
-//            user.getAccountId(String.valueOf(gitHubUser.getId()));
+            user.setAccountId(String.valueOf(gitHubUser.getId()));
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
             response.addCookie(new Cookie("token",token));
+            return "redirect:/";
         } else {
             //登录失败，重新登录
             return "redirect:/";
         }
-        return null;
     }
 }
