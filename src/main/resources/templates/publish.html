@@ -29,11 +29,6 @@
                 <li class="dropdown" th:if="${session.user!=null}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false" th:text="${session.user.getName()}"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">消息中心</a></li>
-                        <li><a href="#">个人资料</a></li>
-                        <li><a href="#">退出登录</a></li>
-                    </ul>
                 </li>
                 <li th:if="${session.user==null}">
                     <a href="https://github.com/login/oauth/authorize?client_id=149dfdc2890cad416fc2&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a>
@@ -44,16 +39,25 @@
     <div class="container-fluid">
         <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12" ></div>
-        <div class="col-lg-3 col-md-12 col-sm-12" ></div>
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            <h2>发起</h2>
+            <h2> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>发起</h2>
             <hr>
-            <form action="">
-                <div class="">
-
+            <form action="/publish" method="post">
+                <div class="form-group">
+                    <label for="title">问题标题（简单扼要）:</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="问题标题...">
                 </div>
+                <div class="form-group">
+                    <label for="title">问题补充</label>
+                    <textarea name="description" id="decription" class="form-control" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="title">添加标签</label>
+                    <input type="text" class="form-control" id="tag" name="tag" placeholder="输入标签">
+                </div>
+                <span class="alert alert-danger" th:text="${error}"></span>
+                <button type="submit" class="btn btn-success">发布</button>
             </form>
-        <div class="col-xs-6 col-md-4" ></div>
+            <div class="col-lg-3 col-md-12 col-sm-12" ></div>
         </div>
     </div>
 </nav>
